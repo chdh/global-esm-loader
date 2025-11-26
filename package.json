@@ -1,0 +1,40 @@
+{
+   "name": "global-esm-loader",
+   "version": "1.0.0",
+   "description": "A custom loader for Node.js that automatically loads globally installed ESM modules",
+   "types": "dist/Loader.d.ts",
+   "main": "dist/Loader.js",
+   "type": "module",
+   "keywords": [
+      "node",
+      "global",
+      "esm",
+      "loader",
+      "esm-loader",
+      "custom",
+      "custom-loader"
+   ],
+   "license": "MIT",
+   "repository": "github:chdh/global-esm-loader",
+   "contributors": [
+      {
+         "name": "Christian d'Heureuse",
+         "email": "chdh@inventec.ch",
+         "url": "http://www.source-code.biz"
+      }
+   ],
+   "devDependencies": {
+      "@types/node": "^24.10.1"
+   },
+   "scripts": {
+      "build": "tsc"
+   },
+   "files": [
+      "dist/*"
+   ],
+   "dependencies": {
+      "global-directory": "^4.0.1",
+      "resolve-global": "^2.0.0",
+      "resolve.exports": "^2.0.3"
+   }
+}

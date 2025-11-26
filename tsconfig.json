@@ -1,0 +1,26 @@
+{
+   "compilerOptions": {
+      "allowUnreachableCode": false,
+      "allowSyntheticDefaultImports": true,
+      "alwaysStrict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["ES2020"],
+      "module": "ES2020",
+      "moduleResolution": "Node",
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitAny": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "outDir": "dist",
+      "removeComments": true,
+      "rewriteRelativeImportExtensions": true,
+      "strictFunctionTypes": true,
+      "strictNullChecks": true,
+      "target": "ES2020"
+   },
+   "include": ["src"]
+}
