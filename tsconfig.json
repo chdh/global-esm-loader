@@ -3,6 +3,8 @@
       "allowUnreachableCode": false,
       "allowSyntheticDefaultImports": true,
       "alwaysStrict": true,
+      "declaration": true,
+      "declarationMap": true,
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "lib": ["ES2020"],
@@ -18,6 +20,7 @@
       "outDir": "dist",
       "removeComments": true,
       "rewriteRelativeImportExtensions": true,
+      "sourceMap": true,
       "strictFunctionTypes": true,
       "strictNullChecks": true,
       "target": "ES2020"

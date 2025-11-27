@@ -30,7 +30,7 @@ Example for Windows:
 ``` Batchfile
 npm install -g global-esm-loader
 npm install -g typescript
-node --import=file://%appdata%/npm/node_modules/global-esm-loader/dist/Loader.js -e "import * as ts from 'typescript'; console.log(ts.version);"
+node --import "file://%appdata%/npm/node_modules/global-esm-loader/dist/Loader.js" -e "import * as ts from 'typescript'; console.log(ts.version);"
 ```
 
 ## Requirements

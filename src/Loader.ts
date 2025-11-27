@@ -27,14 +27,14 @@ function resolve (specifier: string, context: Module.ResolveHookContext, nextRes
    }
 
    // Try the default resolver.
-   let originalError;                                                          // original error of the default resolver
+   let originalError: Error | undefined;                                       // original error of the default resolver
    try {
       const res = nextResolve(specifier, context);
       if (debugLevel > 0) {
          console.log("Default resolver result: ", res);
       }
       return res;
-   } catch (err) {
+   } catch (err: any) {
       if (err?.code === "ERR_MODULE_NOT_FOUND" && isBareSpecifier(specifier)) {
         originalError = err;
       } else {
@@ -53,7 +53,7 @@ function resolve (specifier: string, context: Module.ResolveHookContext, nextRes
       return res;
    } catch (err) {
       if (debugLevel > 0) {
-         console.log("Error code from default resolver with loader parent URL: " + err?.code);
+         console.log("Error from default resolver with loader parent URL: " + err);
       }
    }
 
@@ -63,11 +63,13 @@ function resolve (specifier: string, context: Module.ResolveHookContext, nextRes
       if (debugLevel > 0) {
          console.log("resolveGlobal() path: " + path);
       }
-      const url = pathToFileURL(path).href;
-      return {url, shortCircuit: true};
+      if (path) {
+         const url = pathToFileURL(path).href;
+         return {url, shortCircuit: true};
+      }
    } catch (err) {
       if (debugLevel > 0) {
-         console.log("Error code from resolveGlobal(): " + err.code);
+         console.log("Error from resolveGlobal(): " + err);
       }
    }
 
@@ -81,12 +83,12 @@ function resolve (specifier: string, context: Module.ResolveHookContext, nextRes
       return {url, shortCircuit: true};
    } catch (err) {
       if (debugLevel > 0) {
-         console.log("Error code from resolveGlobalEsm(): " + err.code);
+         console.log("Error from resolveGlobalEsm(): " + err);
       }
    }
 
    // Throw the original error from the default resolver.
-   throw originalError;
+   throw originalError!;
 }
 
 function startup() {
