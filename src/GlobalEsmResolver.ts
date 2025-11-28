@@ -50,5 +50,8 @@ export function resolveGlobalEsm (specifier: string) : string {
          }
       }
    }
-   throw <Error>finalErr;
+   if (finalErr) {
+      throw <Error>finalErr;
+   }
+   throw new Error(`Unable to resolve global package "${specifier}" because no global module paths were found.`);
 }
